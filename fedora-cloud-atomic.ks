@@ -23,7 +23,8 @@ services --enabled=network,sshd,rsyslog,cloud-init,cloud-init-local,cloud-config
 
 zerombr
 clearpart --all
-part / --size 3000 --fstype ext4
+# Atomic differs from cloud - we want LVM
+autopart
 
 ostreesetup --nogpg --osname=fedora-atomic-host --remote=installmedia --url=http://compose-x86-02.phx2.fedoraproject.org/compose/atomic/ --ref=fedora-atomic/f21/x86_64/cloud/docker-host
 
