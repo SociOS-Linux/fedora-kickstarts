@@ -40,8 +40,6 @@ repo --name=fedora-source  --mirrorlist=http://mirrors.fedoraproject.org/mirrorl
 -generic*
 -GConf2-dbus*
 -bluez-gnome
-# Periods cause problems in paterns, so replace with *s
--java-1*8*0-openjdk
 -community-mysql*
 -jruby*
 
