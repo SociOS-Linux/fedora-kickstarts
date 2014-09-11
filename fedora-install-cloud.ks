@@ -41,7 +41,6 @@ repo --name=fedora-source  --mirrorlist=http://mirrors.fedoraproject.org/mirrorl
 -GConf2-dbus*
 -bluez-gnome
 -community-mysql*
--jruby*
 
 # core
 kernel*
