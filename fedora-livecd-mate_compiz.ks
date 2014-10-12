@@ -26,6 +26,11 @@
 -@mate-applications
 -mate-icon-theme-faenza
 -transmission-gtk
+-samba-client
+-gnome-themes
+-fedora-icon-theme
+-espeak
+-gstreamer-plugins-espeak
 
 # Drop oversized fonts that aren't needed
 -cjkuni-uming-fonts
