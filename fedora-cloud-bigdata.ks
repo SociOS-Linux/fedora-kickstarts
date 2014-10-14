@@ -1,8 +1,15 @@
-# Fedora Atomic is a cloud-focused spin implementing the Project Atomic
-# patterns. 
+# This is a Fedora 21 spin designed based on the Fedora Cloud Base Image
+# but tailored specifically for Big Data processing out-of-the-box.
+# Primarily, it builds on that image but adds extra packages, but over
+# time may have additional focus.
 #
-# RIGHT NOW, this is very like the traditional cloud image -- this is
-# just a starting point.
+# It's configured with cloud-init so it will take advantage of
+# ec2-compatible metadata services for provisioning ssh keys. Cloud-init
+# creates a user account named "fedora" with passwordless sudo access. The
+# root password is empty and locked by default.
+#
+# Note that unlike the standard F20 install, this image has /tmp on disk
+# rather than in tmpfs, since memory is usually at a premium.
 
 text
 lang en_US.UTF-8
@@ -23,24 +30,66 @@ services --enabled=network,sshd,rsyslog,cloud-init,cloud-init-local,cloud-config
 
 zerombr
 clearpart --all
-# Atomic differs from cloud - we want LVM
-autopart
+part / --size 3000 --fstype ext4
 
-<<<<<<< HEAD
-ostreesetup --nogpg --osname=fedora-atomic-host --remote=installmedia --url=http://compose-x86-02.phx2.fedoraproject.org/compose/atomic/ --ref=fedora-atomic/f21/x86_64/docker-host
+%include fedora-repo.ks
+
 
 reboot
 
+# Package list.
+%packages
+
+fedora-release-cloud
+
+kernel-core
+@core
+@cloud-server
+
+# Needed initially, but removed below.
+firewalld
+
+# rescue mode generally isn't useful in the cloud context
+-dracut-config-rescue
+
+# Some things from @core we can do without in a minimal install
+-biosdevname
+-plymouth
+-NetworkManager
+-iprutils
+-kbd
+-uboot-tools
+-kernel
+-grub2
+
+%end
 
 
-=======
-# Equivalent of %include fedora-repo.ks
-ostreesetup --nogpg --osname=fedora-atomic-host --remote=installmedia --url=http://kojipkgs.fedoraproject.org/mash/atomic/ --ref=fedora-atomic/rawhide/x86_64/docker-host
 
-reboot
-
->>>>>>> origin
 %post --erroronfail
+
+# Create grub.conf for EC2. This used to be done by appliance creator but
+# anaconda doesn't do it. And, in case appliance-creator is used, we're
+# overriding it here so that both cases get the exact same file.
+# Note that the console line is different -- that's because EC2 provides
+# different virtual hardware, and this is a convenient way to act differently
+echo -n "Creating grub.conf for pvgrub"
+rootuuid=$( awk '$2=="/" { print $1 };'  /etc/fstab )
+mkdir /boot/grub
+echo -e 'default=0\ntimeout=0\n\n' > /boot/grub/grub.conf
+for kv in $( ls -1v /boot/vmlinuz* |grep -v rescue |sed s/.*vmlinuz-//  ); do
+  echo "title Fedora ($kv)" >> /boot/grub/grub.conf
+  echo -e "\troot (hd0,0)" >> /boot/grub/grub.conf
+  echo -e "\tkernel /boot/vmlinuz-$kv ro root=$rootuuid no_timer_check console=hvc0 LANG=en_US.UTF-8" >> /boot/grub/grub.conf
+  echo -e "\tinitrd /boot/initramfs-$kv.img" >> /boot/grub/grub.conf
+  echo
+done
+
+
+#link grub.conf to menu.lst for ec2 to work
+echo -n "Linking menu.lst to old-style grub.conf for pv-grub"
+ln -sf grub.conf /boot/grub/menu.lst
+ln -sf /boot/grub/grub.conf /etc/grub.conf
 
 # older versions of livecd-tools do not follow "rootpw --lock" line above
 # https://bugzilla.redhat.com/show_bug.cgi?id=964299
@@ -52,10 +101,30 @@ userdel -r none
 # 0 means wait forever, so instead we'll go with 1.
 sed -i 's/^timeout 10/timeout 1/' /boot/extlinux/extlinux.conf
 
+# setup systemd to boot to the right runlevel
+echo -n "Setting default runlevel to multiuser text mode"
+rm -f /etc/systemd/system/default.target
+ln -s /lib/systemd/system/multi-user.target /etc/systemd/system/default.target
+echo .
+
 # If you want to remove rsyslog and just use journald, remove this!
 echo -n "Disabling persistent journal"
 rmdir /var/log/journal/ 
 echo . 
+
+# this is installed by default but we don't need it in virt
+echo "Removing linux-firmware package."
+yum -C -y remove linux-firmware
+
+# Remove firewalld; was supposed to be optional in F18+, but is required to
+# be present for install/image building.
+echo "Removing firewalld."
+yum -C -y remove firewalld --setopt="clean_requirements_on_remove=1"
+
+# Another one needed at install time but not after that, and it pulls
+# in some unneeded deps (like, newt and slang)
+echo "Removing authconfig."
+yum -C -y remove authconfig --setopt="clean_requirements_on_remove=1"
 
 echo -n "Getty fixes"
 # although we want console output going to the serial console, we don't
@@ -130,6 +199,15 @@ rpm -qa
 echo "-----------------------------------------------------------------------"
 # Note that running rpm recreates the rpm db files which aren't needed/wanted
 rm -f /var/lib/rpm/__db*
+
+
+echo "Fixing SELinux contexts."
+touch /var/log/cron
+touch /var/log/boot.log
+mkdir -p /var/cache/yum
+chattr -i /boot/extlinux/ldlinux.sys
+/usr/sbin/fixfiles -R -a restore
+chattr +i /boot/extlinux/ldlinux.sys
 
 echo "Zeroing out empty space."
 # This forces the filesystem to reclaim space from deleted files
