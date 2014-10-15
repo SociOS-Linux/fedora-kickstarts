@@ -25,8 +25,6 @@ repo --name=fedora-source  --mirrorlist=http://mirrors.fedoraproject.org/mirrorl
 
 %include fedora-workstation-packages.ks
 
-%include fedora-workstation-packages.ks
-
 # Package manifest for the compose.  Uses repo group metadata to translate groups.
 # (default groups for the configured repos are added by --default)
 # @base got renamed to @standard, but @base is still included by default by pungi.

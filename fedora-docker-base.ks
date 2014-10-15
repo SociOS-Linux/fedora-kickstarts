@@ -13,10 +13,7 @@ firewall --disable
 zerombr
 clearpart --all
 part / --size 3000 --fstype ext4
-<<<<<<< HEAD
 network --bootproto=dhcp --device=link --activate --onboot=on
-=======
->>>>>>> origin
 reboot
 
 %packages --excludedocs --instLangs=en --nocore

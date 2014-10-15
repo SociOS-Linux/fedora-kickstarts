@@ -16,9 +16,6 @@ part / --size 8192
 
 # graphics
 blender
-# add blender plugins
-LuxRender-blender
-YafaRay-blender
 bluefish 
 #cinepaint
 cmyktool
@@ -28,7 +25,6 @@ entangle
 fontforge
 font-manager 
 gimp
-gimp-elsamuko
 gimp-*-plugin
 gimp-data-extras
 gimp-gap
@@ -38,7 +34,7 @@ gimp-normalmap
 gimp-resynthesizer
 gimp-separate+
 gpick
-gmic-gimp 
+GREYCstoration-gimp 
 hugin 
 mypaint
 inkscape
