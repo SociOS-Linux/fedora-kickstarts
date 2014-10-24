@@ -7,6 +7,13 @@
 %include fedora-live-minimization.ks
 
 %packages
+
+# internet browser
+midori
+
+# audio player
+audacious
+
 # First, no office
 -planner
 
@@ -17,9 +24,12 @@
 -bluez-cups
 -caja-image-converter
 -colord
+-compiz-plugins-extra
+-compiz-plugins-unsupported
 -@dial-up
 -espeak
 -fedora-icon-theme
+-firefox
 -GConf2
 -gnome-bluetooth-libs
 -gnome-icon-theme-symbolic
@@ -31,11 +41,14 @@
 -gstreamer-plugins-good
 -gstreamer-plugins-bad-free
 -gstreamer-plugins-espeak
+-gucharmap
 -@guest-desktop-agents
 -@libreoffice
 -lftp
 -@mate-applications
 -mate-icon-theme-faenza
+-mate-system-log
+-NetworkManager-bluetooth
 -transmission-gtk
 -samba-client
 -ibus-chewing
@@ -43,6 +56,7 @@
 -ibus-kkc
 -ImageMagick
 -ImageMagick-libs
+-libical
 -libkkc
 -libkkc-data        #save 30MB
 -skkdic             # save 25MB
@@ -50,9 +64,17 @@
 -libpinyin
 -libpinyin-data     #save 31MB
 -OpenEXR-libs
+-reiserfs-utils
+-seahorse
+-vim-common
+-vim-enhanced
 
 # Drop oversized fonts that aren't needed
 -adobe-source-han-* # save 94MB
+-gnu-free-mono-fonts
+-gnu-free-fonts-common
+-gnu-free-serif-fonts
+-gnu-free-sans-fonts
 -naver-nanum-gothic-fonts # save 14MB
 -stix-fonts
 -vlgothic-fonts
@@ -75,6 +97,7 @@
 -gutenprint-libs
 -cups
 -cups-filters
+-cups-pk-helper
 
 # Dictionaries are big
 # we're going to try keeping hunspell-* after notting, davidz, and ajax voiced
@@ -114,8 +137,11 @@
 # Drop some system-config things
 -system-config-language
 -system-config-printer
+-system-config-printer-libs
+-system-config-printer-udev
 -system-config-rootpassword
 -system-config-services
+-system-config-users
 -policycoreutils-gui
 
 %end
