@@ -15,31 +15,41 @@
 -brasero
 -bluez
 -bluez-cups
+-caja-image-converter
+-colord
 -@dial-up
--dnf
+-espeak
+-fedora-icon-theme
+-GConf2
 -gnome-bluetooth-libs
 -gnome-icon-theme-symbolic
 -gnome-software
+-gnome-themes
 -gnome-user-docs
+-gstreamer1-plugins-good
+-gstreamer1-plugins-bad-free
+-gstreamer-plugins-good
+-gstreamer-plugins-bad-free
+-gstreamer-plugins-espeak
 -@guest-desktop-agents
 -@libreoffice
+-lftp
 -@mate-applications
 -mate-icon-theme-faenza
 -transmission-gtk
 -samba-client
--gnome-themes
--fedora-icon-theme
--espeak
--gstreamer-plugins-espeak
+-ibus-chewing
 -ibus-typing-booster
 -ibus-kkc
+-ImageMagick
+-ImageMagick-libs
 -libkkc
 -libkkc-data        #save 30MB
 -skkdic             # save 25MB
 -ibus-libpinyin
 -libpinyin
 -libpinyin-data     #save 31MB
--colord
+-OpenEXR-libs
 
 # Drop oversized fonts that aren't needed
 -adobe-source-han-* # save 94MB
@@ -63,6 +73,8 @@
 -gutenprint
 -gutenprint-cups
 -gutenprint-libs
+-cups
+-cups-filters
 
 # Dictionaries are big
 # we're going to try keeping hunspell-* after notting, davidz, and ajax voiced
