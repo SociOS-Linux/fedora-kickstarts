@@ -36,6 +36,9 @@ reboot
 
 
 %post --erroronfail
+# See https://github.com/projectatomic/rpm-ostree/issues/42
+ostree remote add --set=gpg-verify=false fedora-atomic 'metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-atomic-21&arch=x86_64'
+(origin_file=$(echo -n /ostree/deploy/fedora-atomic-host/deploy/*.origin); sed -e 's,installmedia:,fedora-atomic:,' < ${origin_file} > ${origin_file}.new && mv ${origin_file}{.new,})
 
 # older versions of livecd-tools do not follow "rootpw --lock" line above
 # https://bugzilla.redhat.com/show_bug.cgi?id=964299
