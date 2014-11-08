@@ -53,11 +53,6 @@ rm -f /etc/systemd/system/default.target
 ln -s /lib/systemd/system/multi-user.target /etc/systemd/system/default.target
 echo .
 
-# If you want to remove rsyslog and just use journald, remove this!
-echo -n "Disabling persistent journal"
-rmdir /var/log/journal/ 
-echo . 
-
 echo -n "Getty fixes"
 # although we want console output going to the serial console, we don't
 # actually have the opportunity to login there. FIX.
