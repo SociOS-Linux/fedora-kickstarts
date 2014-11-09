@@ -55,6 +55,9 @@ kernel-core
 -kernel
 -grub2
 
+# remove until python3 / boto issue can be resolved
+-heat-cfntools
+
 %end
 
 
