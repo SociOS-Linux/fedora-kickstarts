@@ -136,3 +136,10 @@ echo "(Don't worry -- that out-of-space error was expected.)"
 
 %end
 
+%post --nochroot
+# Work around anaconda/dracut/lvm bug
+sync
+sync
+sync
+systemctl reboot -f -f
+%end
