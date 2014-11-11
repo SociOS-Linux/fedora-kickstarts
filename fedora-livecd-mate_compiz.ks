@@ -32,6 +32,7 @@ audacious
 -firefox
 -GConf2
 -gnome-bluetooth-libs
+-gnome-icon-theme
 -gnome-icon-theme-symbolic
 -gnome-software
 -gnome-themes
@@ -52,17 +53,9 @@ audacious
 -transmission-gtk
 -samba-client
 -ibus-chewing
--ibus-typing-booster
--ibus-kkc
 -ImageMagick
 -ImageMagick-libs
 -libical
--libkkc
--libkkc-data        #save 30MB
--skkdic             # save 25MB
--ibus-libpinyin
--libpinyin
--libpinyin-data     #save 31MB
 -OpenEXR-libs
 -reiserfs-utils
 -seahorse
@@ -75,12 +68,7 @@ audacious
 -gnu-free-fonts-common
 -gnu-free-serif-fonts
 -gnu-free-sans-fonts
--naver-nanum-gothic-fonts # save 14MB
 -stix-fonts
--vlgothic-fonts
--paratype-pt-sans-fonts
--jomolhari-fonts
--sil-abyssinica-fonts
 
 # Drop the Java plugin
 -icedtea-web
