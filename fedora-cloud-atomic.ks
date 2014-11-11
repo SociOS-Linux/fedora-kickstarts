@@ -27,7 +27,7 @@ clearpart --all
 part /boot --size=200 --fstype="ext4"
 part pv.01 --grow
 volgroup atomicos pv.01
-logvol / --size=2000 --fstype="xfs" --name=root --vgname=atomicos
+logvol / --size=3000 --fstype="xfs" --name=root --vgname=atomicos
 
 ostreesetup --nogpg --osname=fedora-atomic-host --remote=installmedia --url=http://compose-x86-02.phx2.fedoraproject.org/compose/atomic/ --ref=fedora-atomic/f21/x86_64/docker-host
 
