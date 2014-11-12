@@ -8,9 +8,6 @@
 
 %packages
 
-# internet browser
-midori
-
 # audio player
 audacious
 
@@ -29,7 +26,6 @@ audacious
 -@dial-up
 -espeak
 -fedora-icon-theme
--firefox
 -GConf2
 -gnome-bluetooth-libs
 -gnome-icon-theme
@@ -48,7 +44,6 @@ audacious
 -lftp
 -@mate-applications
 -mate-icon-theme-faenza
--mate-system-log
 -NetworkManager-bluetooth
 -transmission-gtk
 -samba-client
