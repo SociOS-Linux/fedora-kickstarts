@@ -63,7 +63,6 @@ audacious
 -vim-enhanced
 
 # Drop oversized fonts that aren't needed
--adobe-source-han-* # save 94MB
 -gnu-free-mono-fonts
 -gnu-free-fonts-common
 -gnu-free-serif-fonts
