@@ -29,7 +29,7 @@ part pv.01 --grow
 volgroup atomicos pv.01
 logvol / --size=2000 --fstype="xfs" --name=root --vgname=atomicos
 
-ostreesetup --nogpg --osname=fedora-atomic-host --remote=fedora-atomic --url=http://compose-x86-02.phx2.fedoraproject.org/compose/atomic/ --ref=fedora-atomic/f21/x86_64/docker-host
+ostreesetup --nogpg --osname=fedora-atomic --remote=fedora-atomic --url=http://compose-x86-02.phx2.fedoraproject.org/compose/atomic/ --ref=fedora-atomic/f21/x86_64/docker-host
 
 reboot
 
