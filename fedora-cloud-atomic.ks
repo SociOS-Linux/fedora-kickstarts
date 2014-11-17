@@ -29,7 +29,7 @@ part pv.01 --grow
 volgroup atomicos pv.01
 logvol / --size=2000 --fstype="xfs" --name=root --vgname=atomicos
 
-ostreesetup --nogpg --osname=fedora-atomic-host --remote=installmedia --url=http://compose-x86-02.phx2.fedoraproject.org/compose/atomic/ --ref=fedora-atomic/f21/x86_64/docker-host
+ostreesetup --nogpg --osname=fedora-atomic-host --remote=fedora-atomic --url=http://compose-x86-02.phx2.fedoraproject.org/compose/atomic/ --ref=fedora-atomic/f21/x86_64/docker-host
 
 reboot
 
@@ -37,9 +37,8 @@ reboot
 
 %post --erroronfail
 # See https://github.com/projectatomic/rpm-ostree/issues/42
+ostree remote delete fedora-atomic
 ostree remote add --set=gpg-verify=false fedora-atomic 'http://dl.fedoraproject.org/pub/fedora/linux/atomic/21/'
-(origin_file=$(echo -n /ostree/deploy/fedora-atomic-host/deploy/*.origin); sed -e 's,installmedia:,fedora-atomic:,' < ${origin_file} > ${origin_file}.new && mv ${origin_file}{.new,})
-rm /ostree/repo/refs/remotes/installmedia -rf
 
 # older versions of livecd-tools do not follow "rootpw --lock" line above
 # https://bugzilla.redhat.com/show_bug.cgi?id=964299
