@@ -28,6 +28,10 @@ repo --name=fedora-source  --mirrorlist=http://mirrors.fedoraproject.org/mirrorl
 # @base got renamed to @standard, but @base is still included by default by pungi.
 %packages --default
 
+-fedora-productimg-cloud
+fedora-productimg-server
+-fedora-productimg-workstation
+
 # pungi is an inclusive depsolver so that multiple packages are brought 
 # in to satisify dependencies and we don't always want that. So we  use
 # an exclusion list to cut out things we don't want
