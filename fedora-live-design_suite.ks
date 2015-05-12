@@ -113,7 +113,6 @@ Comment=Wiki page of Design Suite
 Name=About Design Team 
 GenericName=About Design Team 
 Comment=Wiki page of Design Team
->>>>>>> d4d001c54999e8f5401ca3f7b5d9b6a2d0132093
 Exec=xdg-open http://fedoraproject.org/wiki/Design_Suite
 Type=Application
 Icon=applications-internet
