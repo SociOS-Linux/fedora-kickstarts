@@ -110,9 +110,9 @@ cat >> /usr/share/applications/fedora-design-suite.desktop << FOE
 Name=Design Suite Info
 GenericName=About Design Suite
 Comment=Wiki page of Design Suite
-Name=About Design Team 
-GenericName=About Design Team 
-Comment=Wiki page of Design Team
+Name=About Design Suite
+GenericName=About Design Suite 
+Comment=Wiki page of Design Suite
 Exec=xdg-open http://fedoraproject.org/wiki/Design_Suite
 Type=Application
 Icon=applications-internet
@@ -125,8 +125,8 @@ cat >> /usr/share/applications/fedora-design-team.desktop << FOE
 [Desktop Entry]
 Name=Design Team Info
 GenericName=About Design Team 
-Name=About Design Suite
-GenericName=About Design Suite Wiki Page
+Name=About Design Team
+GenericName=About Design Team Wiki Page
 Comment=Wiki page of Design Team
 Exec=xdg-open http://fedoraproject.org/wiki/Design
 Type=Application
@@ -139,4 +139,3 @@ chmod a+x /usr/share/applications/fedora-design-team.desktop
 glib-compile-schemas /usr/share/glib-2.0/schemas
 
 %end
-
