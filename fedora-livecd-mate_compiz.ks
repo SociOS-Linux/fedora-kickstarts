@@ -23,14 +23,14 @@ f21-backgrounds-extras-mate
 system-config-printer
 system-config-printer-applet
 
-# audio player
-audacious
-
 # office
 @libreoffice
 
 # dsl tools
 rp-pppoe
+
+# blacklist applications who breaks mate desktop
+-audacious
 
 # Drop things for size
 -@3d-printing
