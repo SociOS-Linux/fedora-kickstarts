@@ -29,6 +29,11 @@ system-config-printer-applet
 # dsl tools
 rp-pppoe
 
+# audio video
+parole
+exaile
+PackageKit-gstreamer-plugin
+
 # blacklist applications who breaks mate desktop
 -audacious
 
