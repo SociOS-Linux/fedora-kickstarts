@@ -91,7 +91,6 @@ dracut-*
 # Web Server environment
 @haproxy
 @mongodb
-@perl-web
 @python-web
 @php
 @rubyonrails
