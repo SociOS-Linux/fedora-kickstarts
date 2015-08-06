@@ -68,7 +68,6 @@ kernel-core
 -kbd
 -uboot-tools
 -kernel
--grub2
 
 %end
 
