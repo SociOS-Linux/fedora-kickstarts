@@ -19,7 +19,7 @@ fusion-icon-gtk
 blueman
 
 # some apps from mate-applications
-caja-actions
+# caja-actions
 mate-disk-usage-analyzer
 mate-netspeed
 
