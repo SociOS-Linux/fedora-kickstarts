@@ -19,14 +19,14 @@ fusion-icon-gtk
 blueman
 
 # some apps from mate-applications
-caja-actions
+# caja-actions
 mate-disk-usage-analyzer
 mate-netspeed
 
 # more backgrounds
 f23-backgrounds-base
 f23-backgrounds-mate
-f21-backgrounds-extras-base
+f23-backgrounds-extras-base
 
 # system tools
 system-config-printer

@@ -21,9 +21,9 @@ part / --size 12288
 @engineering-and-scientific
 
 # scilab
-scilab
-scilab-devel
-scilab-doc
+#scilab
+#scilab-devel
+#scilab-doc
 
 # sagemath
 # BZ #1006230 should fix this
@@ -110,8 +110,6 @@ pdfshuffler
 openmpi
 openmpi-devel
 valgrind-openmpi
-pvm
-pvm-gui #will install 'pvm' as well
 libgomp
 python-pp
 mpi4py-openmpi

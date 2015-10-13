@@ -33,14 +33,14 @@ volgroup atomicos pv.01
 logvol / --size=3000 --fstype="xfs" --name=root --vgname=atomicos
 
 # Equivalent of %include fedora-repo.ks
-ostreesetup --nogpg --osname=fedora-atomic --remote=fedora-atomic --url=http://kojipkgs.fedoraproject.org/mash/atomic/rawhide/ --ref=fedora-atomic/rawhide/x86_64/docker-host
+ostreesetup --nogpg --osname=fedora-atomic --remote=fedora-atomic --url=http://kojipkgs.fedoraproject.org/mash/atomic/23/ --ref=fedora-atomic/f23/x86_64/docker-host
 
 reboot
 
 %post --erroronfail
 # See https://github.com/projectatomic/rpm-ostree/issues/42
 ostree remote delete fedora-atomic
-ostree remote add --set=gpg-verify=false fedora-atomic 'https://dl.fedoraproject.org/pub/fedora/linux/atomic/rawhide/'
+ostree remote add --set=gpg-verify=false fedora-atomic 'https://dl.fedoraproject.org/pub/fedora/linux/atomic/23/'
 
 # older versions of livecd-tools do not follow "rootpw --lock" line above
 # https://bugzilla.redhat.com/show_bug.cgi?id=964299

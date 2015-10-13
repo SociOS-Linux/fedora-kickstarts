@@ -52,7 +52,12 @@ reboot
 # Package list.
 # FIXME: instLangs does not work, so there's a hack below
 # (see https://bugzilla.redhat.com/show_bug.cgi?id=1051816)
-%packages --instLangs=en
+# FIXME: instLangs bug has been fixed but now having instLangs
+# with an arg causes no langs to get installed because of BZ1262040
+# which yields the errors in BZ1261249. For now fix by not using
+# --instLangs at all
+#%packages --instLangs=en
+%packages
 
 kernel-core
 @^cloud-server-environment
@@ -113,8 +118,9 @@ echo .
 
 # this is installed by default but we don't need it in virt
 # Commenting out the following for #1234504
-#echo "Removing linux-firmware package."
-#dnf -C -y erase linux-firmware
+# rpm works just fine for removing this, no idea why dnf can't cope
+echo "Removing linux-firmware package."
+rpm -e linux-firmware
 
 # Remove firewalld; was supposed to be optional in F18+, but is pulled in
 # in install/image building.
