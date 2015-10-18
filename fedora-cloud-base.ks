@@ -67,10 +67,14 @@ kernel-core
 
 # Some things from @core we can do without in a minimal install
 -biosdevname
--plymouth
+# Need to also add back plymouth in order to mask failure of
+# systemd-vconsole-setup.service. BZ#1272684. Comment out for now
+#-plymouth
 -NetworkManager
 -iprutils
--kbd
+# Now that BZ#1199868 is fixed kbd really gets removed but it breaks
+# systemd-vconsole-setup.service on boot. Comment out for now
+#-kbd
 -uboot-tools
 -kernel
 
@@ -239,6 +243,9 @@ echo "Zeroing out empty space."
 dd bs=1M if=/dev/zero of=/var/tmp/zeros || :
 rm -f /var/tmp/zeros
 echo "(Don't worry -- that out-of-space error was expected.)"
+
+# For trac ticket https://fedorahosted.org/cloud/ticket/128
+rm -f /etc/sysconfig/network-scripts/ifcfg-ens3
 
 %end
 
