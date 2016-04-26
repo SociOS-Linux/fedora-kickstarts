@@ -11,10 +11,6 @@ part / --size 14336
 
 %packages
 
-# This should be temporary as XFCE is just using firefox while midori
-# is busted
--firefox
-
 # Wine pulls in i386 libraries under x86_86 making that spin too big.
 # Also the point is to show off Fedora games, not running windows games.
 
@@ -49,7 +45,7 @@ extremetuxracer
 freeciv
 freecol
 freedoom
-freedroidrpg
+# freedroidrpg cut for size
 frozen-bubble
 gl-117
 glob2
@@ -102,7 +98,7 @@ openlierox
 pachi
 pioneers
 quarry
-Ri-li
+# Ri-li cut for size
 rogue
 # scorchwentbonkers # Would pull in fluid-soundfont-lite-patches
 seahorse-adventures
