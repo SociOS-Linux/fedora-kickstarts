@@ -17,7 +17,6 @@ ccsm
 emerald-themes
 emerald
 fusion-icon
-fusion-icon-gtk
 @libreoffice
 @networkmanager-submodules
 
