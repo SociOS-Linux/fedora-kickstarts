@@ -51,8 +51,8 @@ gl-117
 glob2
 lincity-ng
 tmw
-maniadrive
-maniadrive-music
+#maniadrive - maniadrive isn't building with php7
+#maniadrive-music
 megaglest
 nethack-vultures
 netpanzer
