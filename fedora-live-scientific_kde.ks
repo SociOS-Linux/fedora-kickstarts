@@ -133,9 +133,9 @@ backintime-kde
 libotf
 
 #root
-root
-root-gui-fitpanel
-root-python
+#root
+#root-gui-fitpanel
+#root-python
 
 #Multiple jobs/clustering system
 # torque
