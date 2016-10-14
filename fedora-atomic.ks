@@ -129,7 +129,7 @@ echo "Adding Developer Mode GRUB2 menu item."
 
 # enable network service here, as doing it in the services line
 # fails due to RHBZ #1369794
-/sbin/chkconfig network on
+/sbin/chkconfig network off
 
 %end
 
