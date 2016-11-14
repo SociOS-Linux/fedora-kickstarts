@@ -1,11 +1,11 @@
 # fedora-design-suite.ks
 # Based on Live Workstation
 # Description:
-# - A Spin targeted towards professional designers
+# - A collection of applications targeted towards professional visual designers
 # Website: http://fedoraproject.org/wiki/Design_Suite
-# Maintainers:
+# Maintainer:
 # - Luya Tshimbalanga <luya AT fedoraproject DOT org>
-# - Previous maintainer Sebastian Dziallas
+# - Credit to Sebastian Dziallas for initiating the project
 
 %include fedora-live-workstation.ks
 
@@ -39,22 +39,23 @@ gimpfx-foundry
 gmic-gimp
 inkscape-psd
 inkscape-sozi
-LuxRender-blender
+inkscape-table
+#LuxRender-blender Comment that line because i86 support is no longer available
 sane-backends-drivers-scanners
 xsane-gimp
 #YafaRay-blender
 
-# Preview Gnome Photos
+# Add extra gnome applications
+gnome-books
+gnome-calendar
 gnome-photos
 
-# Add gthumb for renaming group files
-gthumb
-
 # Extra wallpapers
-f23-backgrounds-extras-base
-f23-backgrounds-extras-gnome
 f24-backgrounds-extras-base
 f24-backgrounds-extras-gnome
+f25-backgrounds-extras-base
+f25-backgrounds-extras-gnome
+
 
 # removal of unneeded applications
 -gnome-boxes
@@ -67,7 +68,7 @@ f24-backgrounds-extras-gnome
 #Override the favorite desktop application in Dash
 cat >> /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.override << FOE
 [org.gnome.shell]
-favorite-apps=['firefox.desktop', 'shotwell.desktop', 'darktable.desktop', 'gimp.desktop', 'inkscape.desktop', 'blender.desktop', 'libreoffice-writer.desktop', 'scribus.desktop', 'nautilus.desktop', 'bijiben.desktop', 'anaconda.desktop', 'list-design-tutorials.desktop']
+favorite-apps=['firefox.desktop', 'shotwell.desktop', 'gimp.desktop', 'darktable.desktop','krita', 'inkscape.desktop', 'blender.desktop', 'libreoffice-writer.desktop', 'scribus.desktop', 'nautilus.desktop', 'bijiben.desktop', 'anaconda.desktop', 'list-design-tutorials.desktop']
 FOE
 
 # Add link to lists of tutorials
