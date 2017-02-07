@@ -32,11 +32,15 @@ volgroup atomicos pv.01
 logvol / --size=3000 --fstype="xfs" --name=root --vgname=atomicos
 
 # Equivalent of %include fedora-repo.ks
-ostreesetup --nogpg --osname=fedora-atomic --remote=fedora-atomic --url=https://dl.fedoraproject.org/pub/fedora/linux/atomic/25/ --ref=fedora-atomic/25/x86_64/docker-host
+ostreesetup --nogpg --osname=fedora-atomic --remote=fedora-atomic --url=https://dl.fedoraproject.org/pub/fedora/linux/atomic/25/ --ref=fedora-atomic/25/x86_64/updates/docker-host
 
 reboot
 
 %post --erroronfail
+# Set the ref we are tracking to the be fedora-atomic/25/x86_64/docker-host
+# one, which is what we are using for the two week releases. We want consumers
+# of this image to track the two week releases
+ostree admin set-origin --index 0 fedora-atomic https://dl.fedoraproject.org/pub/fedora/linux/atomic/25/ fedora-atomic/25/x86_64/docker-host
 
 # older versions of livecd-tools do not follow "rootpw --lock" line above
 # https://bugzilla.redhat.com/show_bug.cgi?id=964299
