@@ -23,6 +23,8 @@ keyboard us
 network --bootproto=dhcp --device=link --activate --onboot=on
 reboot
 
+# boot partitions are irrelevant as none of that content is taken into the final docker image
+# We will be able to move to autopart when new pykickstart lands which adds option for noswap/noboot (fixed upstream)
 zerombr
 clearpart --all
 part /boot/efi --fstype="vfat" --size=100
