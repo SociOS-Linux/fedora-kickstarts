@@ -29,6 +29,6 @@ libyui-mga-ncurses          # Ncurses-frontend for dnfdragora (text-mode use)
 
 # extra backgrounds
 desktop-backgrounds-basic
-f25-backgrounds-extras-gnome
+f26-backgrounds-extras-gnome
 
 %end
