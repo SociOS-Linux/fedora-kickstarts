@@ -113,7 +113,6 @@ valgrind-openmpi
 libgomp
 python-pp
 mpi4py-openmpi
-python3-mpi4py-openmpi
 
 #Version control- a GUI for each as well
 
