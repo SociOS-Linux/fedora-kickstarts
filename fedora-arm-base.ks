@@ -42,7 +42,6 @@ initial-setup-gui
 -trousers-lib
 -usb_modeswitch
 -iproute-tc
--xkeyboard-config
 #lets resize / on first boot
 # dracut-modules-growroot
 
