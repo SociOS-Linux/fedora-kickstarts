@@ -50,7 +50,6 @@ initial-setup
 -trousers-lib
 -usb_modeswitch
 -iproute-tc
--xkeyboard-config
 -generic-release*
 
 # make sure all the locales are available for inital0-setup and anaconda to work
