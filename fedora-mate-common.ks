@@ -30,7 +30,7 @@ lightdm-gtk-greeter-settings
 # audio video
 parole
 exaile
-gstreamer1-plugin-mpg123  # mp3 support
+gstreamer1-plugins-ugly-free # mp3 support
 
 # blacklist applications which breaks mate-desktop
 -audacious
@@ -54,13 +54,9 @@ nss-mdns
 -brasero
 -colord
 -fedora-icon-theme
--GConf2
--gnome-bluetooth-libs
 -gnome-icon-theme
 -gnome-icon-theme-symbolic
 -gnome-software
--gnome-themes
--gnome-themes-standard
 -gnome-user-docs
 
 -@mate-applications
