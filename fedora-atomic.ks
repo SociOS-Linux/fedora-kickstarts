@@ -31,7 +31,7 @@ volgroup atomicos pv.01
 logvol / --size=3000 --fstype="xfs" --name=root --vgname=atomicos
 
 # Equivalent of %include fedora-repo.ks
-ostreesetup --nogpg --osname=fedora-atomic --remote=fedora-atomic --url=https://kojipkgs.fedoraproject.org/compose/atomic/26/ --ref=fedora/26/x86_64/updates/atomic-host
+ostreesetup --nogpg --osname=fedora-atomic --remote=fedora-atomic --url=https://kojipkgs.fedoraproject.org/atomic/26/ --ref=fedora/26/x86_64/updates/atomic-host
 
 reboot
 
