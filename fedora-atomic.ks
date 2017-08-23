@@ -48,6 +48,10 @@ ostree refs fedora-atomic:fedora/26/x86_64/updates/atomic-host --create fedora-a
 # cleaned up.
 ostree refs fedora-atomic:fedora/26/x86_64/updates/atomic-host --delete
 
+# delete/add the remote with new options to enable gpg verification
+ostree remote delete fedora-atomic
+ostree remote add --set=gpg-verify=true --set=gpgkeypath=/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-26-primary fedora-atomic 'https://kojipkgs.fedoraproject.org/atomic/26/'
+
 # older versions of livecd-tools do not follow "rootpw --lock" line above
 # https://bugzilla.redhat.com/show_bug.cgi?id=964299
 passwd -l root
