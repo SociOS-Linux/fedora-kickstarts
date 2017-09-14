@@ -25,7 +25,8 @@ services --enabled=sshd,cloud-init,cloud-init-local,cloud-config,cloud-final
 zerombr
 clearpart --all
 # Atomic differs from cloud - we want LVM
-part /boot --size=300 --fstype="ext4"
+# Use reqpart to create hardware platform specific partitions
+reqpart --add-boot
 part pv.01 --grow
 volgroup atomicos pv.01
 logvol / --size=3000 --fstype="xfs" --name=root --vgname=atomicos
