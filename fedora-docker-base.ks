@@ -84,12 +84,12 @@ rm -f /tmp/ks-script*
 #Mask mount units and getty service so that we don't get login prompt
 systemctl mask systemd-remount-fs.service dev-hugepages.mount sys-fs-fuse-connections.mount systemd-logind.service getty.target console-getty.service
 
-# Fix /run/lock breakage since it's not tmpfs in docker
-umount /run
-systemd-tmpfiles --create --boot
-
 # Remove machine-id on pre generated images
 rm -f /etc/machine-id
 touch /etc/machine-id
+
+# Fix /run/lock breakage since it's not tmpfs in docker
+umount /run
+systemd-tmpfiles --create --boot
 
 %end
