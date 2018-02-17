@@ -57,7 +57,7 @@ logvol / --size=3000 --grow --fstype="xfs" --name=root --vgname=atomicos
 
 # Equivalent of %include fedora-repo.ks
 # Pull from the ostree repo that was created during the compose
-ostreesetup --nogpg --osname=fedora-atomic --remote=fedora-atomic --url=https://kojipkgs.fedoraproject.org/compose/atomic/rawhide/ --ref=fedora/rawhide/${basearch}/atomic-host
+ostreesetup --nogpg --osname=fedora-atomic --remote=fedora-atomic --url=https://kojipkgs.fedoraproject.org/compose/atomic/28/ --ref=fedora/28/${basearch}/atomic-host
 
 reboot
 
@@ -67,7 +67,7 @@ reboot
 # This location is where the compose gets synced to after the compose
 # is done.
 ostree remote delete fedora-atomic
-ostree remote add --set=gpg-verify=true --set=gpgkeypath=/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-28-primary fedora-atomic 'https://kojipkgs.fedoraproject.org/atomic/rawhide/'
+ostree remote add --set=gpg-verify=true --set=gpgkeypath=/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-28-primary fedora-atomic 'https://kojipkgs.fedoraproject.org/atomic/28/'
 
 # older versions of livecd-tools do not follow "rootpw --lock" line above
 # https://bugzilla.redhat.com/show_bug.cgi?id=964299
