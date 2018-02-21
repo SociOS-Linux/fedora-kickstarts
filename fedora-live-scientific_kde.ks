@@ -20,9 +20,9 @@ part / --size 14500
 @engineering-and-scientific
 
 # scilab
-scilab
-scilab-devel
-scilab-doc
+#scilab
+#scilab-devel
+#scilab-doc
 
 # Remove sagemath explicitly?
 -sagemath
@@ -50,7 +50,7 @@ python-ipython
 python-ipython-console
 python-ipython-notebook
 sympy
-python-networkx
+#python-networkx
 python-pandas
 
 #python 3 and tools/libraries not included from the groups
@@ -63,7 +63,7 @@ python3-ipython
 python3-ipython-console
 python3-ipython-notebook
 python3-sympy
-python3-networkx
+#python3-networkx
 python3-pandas
 
 # matplotlib backends
@@ -80,7 +80,7 @@ apache-commons-math
 gcc-gfortran
 
 # GUI for R
-rkward
+#rkward
 
 # GUI for Octave
 qtoctave
