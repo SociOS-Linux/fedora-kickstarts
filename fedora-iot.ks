@@ -27,7 +27,7 @@ logvol / --size=3000 --fstype="ext4" --name=root --vgname=fedoraiot
 
 # Equivalent of %include fedora-repo.ks
 # Pull from the ostree repo that was created during the compose
-ostreesetup --nogpg --osname=fedora-iot --remote=fedora-iot --url=https://kojipkgs.fedoraproject.org/compose/iot/repo/ --ref=fedora/28/${basearch}/updates/iot
+ostreesetup --nogpg --osname=fedora-iot --remote=fedora-iot --url=https://kojipkgs.fedoraproject.org/compose/iot/repo/ --ref=fedora/28/${basearch}/iot
 
 reboot
 
@@ -53,10 +53,10 @@ ostree admin set-origin --index 0 fedora-iot https://kojipkgs.fedoraproject.org/
 
 # Make sure the ref we're supposedly sitting on (according
 # to the updated origin) exists.
-ostree refs "fedora-iot:fedora/28/${arch}/updates/iot" --create "fedora-iot:fedora/28/${arch}/iot"
+ostree refs "fedora-iot:fedora/28/${arch}/iot" --create "fedora-iot:fedora/28/${arch}/iot"
 
 # Remove the old ref so that the commit eventually gets cleaned up.
-ostree refs "fedora-iot:fedora/28/${arch}/updates/iot" --delete
+ostree refs "fedora-iot:fedora/28/${arch}/iot" --delete
 
 # delete/add the remote with new options to enable gpg verification
 # and to point them at the cdn url
