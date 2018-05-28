@@ -17,13 +17,7 @@ services --enabled=NetworkManager,sshd,rngd,initial-setup
 
 zerombr
 clearpart --all
-# Use reqpart to create hardware platform specific partitions
-# https://pagure.io/atomic-wg/issue/299
-reqpart --add-boot
-part pv.01 --grow
-volgroup fedoraiot pv.01
-# Start from 3GB as we did before, since we just need a size.
-logvol / --size=3000 --fstype="ext4" --name=root --vgname=fedoraiot
+autopart --nohome --noswap --type=plain
 
 # Equivalent of %include fedora-repo.ks
 # Pull from the ostree repo that was created during the compose
