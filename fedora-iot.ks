@@ -8,6 +8,7 @@ timezone --utc Etc/UTC
 auth --useshadow --passalgo=sha512
 selinux --enforcing
 rootpw --lock --iscrypted locked
+firstboot --reconfig --enable
 
 # Add most common consoles console=ttyAMA0 console=ttyS0 console=ttyS1 as kernel boot parameter
 bootloader --timeout=1 --append="console=tty1 console=ttyS0,115200n8 console=ttyS1,115200n8 console=ttyAMA0,115200n8 net.ifnames=0 modprobe.blacklist=vc4"
