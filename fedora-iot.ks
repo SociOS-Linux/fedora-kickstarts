@@ -15,6 +15,9 @@ bootloader --timeout=1 --append="console=tty1 console=ttyS0,115200n8 console=tty
 network --bootproto=dhcp --device=link --activate --onboot=on
 services --enabled=NetworkManager,sshd,rngd,initial-setup
 
+# tell Initial Setup to run in the reconfig mode
+firstboot --reconfig --enable
+
 zerombr
 clearpart --all
 autopart --nohome --noswap --type=plain
