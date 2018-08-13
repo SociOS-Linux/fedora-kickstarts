@@ -58,7 +58,7 @@ logvol / --size=3000 --grow --fstype="xfs" --name=root --vgname=atomicos
 
 # Equivalent of %include fedora-repo.ks
 # Pull from the ostree repo that was created during the compose
-ostreesetup --nogpg --osname=fedora-atomic --remote=fedora-atomic --url=https://kojipkgs.fedoraproject.org/compose/atomic/repo/ --ref=fedora/rawhide/${basearch}/atomic-host
+ostreesetup --nogpg --osname=fedora-atomic --remote=fedora-atomic --url=https://kojipkgs.fedoraproject.org/compose/atomic/repo/ --ref=fedora/29/${basearch}/atomic-host
 
 reboot
 
