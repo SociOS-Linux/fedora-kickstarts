@@ -70,8 +70,9 @@ rkward
 qtoctave
 
 # julia
-julia
-julia-doc
+# Comment out till https://koji.fedoraproject.org/koji/buildinfo?buildID=1135023 is fixed
+# julia
+# julia-doc
 
 # IDEs for the IDE folks
 @eclipse
