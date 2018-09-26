@@ -75,7 +75,9 @@ qtoctave
 # julia-doc
 
 # IDEs for the IDE folks
-@eclipse
+# Workaround for: https://pagure.io/releng/issue/7814
+# @eclipse
+
 spyder
 
 #writing & publishing
