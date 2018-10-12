@@ -3,4 +3,4 @@
 # refs (fedora/29/${basearch}/testing/atomic-host) for vagrant
 
 %include fedora-atomic-vagrant.ks
-%include fedora-atomic-testing.ks
+%include fedora-atomic-testing-base.ks
