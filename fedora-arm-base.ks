@@ -39,7 +39,6 @@ initial-setup-gui
 -iwl*
 -ipw*
 -usb_modeswitch
--iproute-tc
 #lets resize / on first boot
 # dracut-modules-growroot
 
