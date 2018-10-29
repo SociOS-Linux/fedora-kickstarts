@@ -27,7 +27,11 @@ pavucontrol-qt-l10n
 # MP3
 gstreamer1-plugin-mpg123
 
+<<<<<<< HEAD
 # Editor
+=======
+# Text Editor
+>>>>>>> master
 enki
 
 # remove unneeded stuff to get a lightweight system
