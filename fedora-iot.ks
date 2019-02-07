@@ -56,7 +56,7 @@ ostree refs "fedora-iot:fedora/stable/${arch}/iot" --delete
 # delete/add the remote with new options to enable gpg verification
 # and to point them at the cdn url
 ostree remote delete fedora-iot
-ostree remote add --set=gpg-verify=true --set=gpgkeypath=/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-iot-2019 fedora-iot 'https://dl.fedoraproject.org/iot/repo/'
+ostree remote add --set=gpg-verify=true --set=gpgkeypath=/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-iot-2019 fedora-iot --set=contenturl=mirrorlist=https://ostree.fedoraproject.org/iot/mirrorlist fedora-iot 'https://ostree.fedoraproject.org/iot'
 
 # We're gettin a stray console= from somewhere, work around it
 rpm-ostree kargs --delete=console=tty0
@@ -107,10 +107,6 @@ rm -f /etc/sysconfig/network-scripts/ifcfg-ens3
 
 echo "Adding Developer Mode GRUB2 menu item."
 /usr/libexec/atomic-devmode/bootentry add
-
-# Disable network service here, as doing it in the services line
-# fails due to RHBZ #1369794
-/sbin/chkconfig network off
 
 # Anaconda is writing an /etc/resolv.conf from the install environment.
 # The system should start out with an empty file, otherwise cloud-init
