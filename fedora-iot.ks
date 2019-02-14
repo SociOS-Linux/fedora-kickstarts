@@ -44,7 +44,7 @@ fi
 
 # Set the origin to the "main ref", distinct from /updates/ which is where bodhi writes.
 # We want consumers of this image to track the two week releases.
-ostree admin set-origin --index 0 fedora-iot https://kojipkgs.fedoraproject.org/iot/29/ "fedora/stable/${arch}/iot"
+ostree admin set-origin --index 0 fedora-iot https://dl.fedoraproject.org/iot/repo/ "fedora/stable/${arch}/iot"
 
 # Make sure the ref we're supposedly sitting on (according
 # to the updated origin) exists.
@@ -56,7 +56,7 @@ ostree refs "fedora-iot:fedora/stable/${arch}/iot" --delete
 # delete/add the remote with new options to enable gpg verification
 # and to point them at the cdn url
 ostree remote delete fedora-iot
-ostree remote add --set=gpg-verify=true --set=gpgkeypath=/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-iot-2019 fedora-iot --set=contenturl=mirrorlist=https://ostree.fedoraproject.org/iot/mirrorlist fedora-iot 'https://ostree.fedoraproject.org/iot'
+ostree remote add --set=gpg-verify=true --set=gpgkeypath=/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-iot-2019 --set=contenturl=mirrorlist=https://ostree.fedoraproject.org/iot/mirrorlist  fedora-iot 'https://ostree.fedoraproject.org/iot'
 
 # We're gettin a stray console= from somewhere, work around it
 rpm-ostree kargs --delete=console=tty0
