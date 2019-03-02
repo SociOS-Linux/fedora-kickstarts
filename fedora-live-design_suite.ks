@@ -21,7 +21,6 @@ deja-dup
 deja-dup-nautilus
 
 # Add extra gnome applications
-gnome-books
 gnome-calendar
 gnome-photos
 gnome-shell-extension-pomodoro
@@ -32,8 +31,8 @@ powerline
 powerline-fonts
 
 # Extra wallpapers
-f28-backgrounds-extras-base
-f28-backgrounds-extras-gnome
+-f28-backgrounds-extras-base
+-f28-backgrounds-extras-gnome
 
 # removal of unneeded applications
 -gnome-boxes
