@@ -6,7 +6,6 @@
 # Maintainer:
 # - Luya Tshimbalanga <luya AT fedoraproject DOT org>
 # - Credit to Sebastian Dziallas for initiating the project
-
 %include fedora-live-workstation.ks
 
 # Size partition
