@@ -30,8 +30,7 @@ powerline
 powerline-fonts
 
 # Extra wallpapers
--f28-backgrounds-extras-base
--f28-backgrounds-extras-gnome
+f30-backgrounds-extras-gnome
 
 # removal of unneeded applications
 -gnome-boxes
@@ -40,7 +39,6 @@ powerline-fonts
 
 # temporarily removing conflicting application
 -LuxRender-blender
--mypaint
 
 %end
 
