@@ -39,6 +39,8 @@ f30-backgrounds-extras-gnome
 
 # temporarily removing conflicting application
 -LuxRender-blender
+-blender
+-synfigstudio
 
 %end
 
