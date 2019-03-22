@@ -57,7 +57,7 @@ gcc-gfortran
 rkward
 
 # GUI for Octave
-qtoctave
+#qtoctave
 
 # julia
 # Comment out till build failure is sorted
@@ -70,7 +70,7 @@ qtoctave
 # Workaround for https://pagure.io/releng/issue/7814
 -eclipse-linuxtools-vagrant
 
-spyder
+#spyder
 
 #writing & publishing
 emacs
