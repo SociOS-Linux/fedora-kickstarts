@@ -41,6 +41,7 @@ f30-backgrounds-extras-gnome
 -LuxRender-blender
 -blender
 -synfigstudio
+-mypaint
 
 %end
 
