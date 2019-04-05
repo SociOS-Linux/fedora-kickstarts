@@ -38,8 +38,6 @@ f30-backgrounds-extras-gnome
 -rdesktop
 
 # temporarily removing conflicting application
--LuxRender-blender
--blender
 -synfigstudio
 -mypaint
 
