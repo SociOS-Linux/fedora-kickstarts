@@ -32,7 +32,7 @@ powerline
 powerline-fonts
 
 # Extra wallpapers
-f31-backgrounds-extras-gnome
+f32-backgrounds-extras-gnome
 
 # removal of unneeded applications
 -gnome-boxes
