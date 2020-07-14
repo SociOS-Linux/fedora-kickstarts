@@ -38,6 +38,8 @@ rpm
 shadow-utils
 sssd-client
 util-linux
+# needed by Anaconda https://bugzilla.redhat.com/show_bug.cgi?id=1744115
+systemd
 -kernel
 -dosfstools
 -e2fsprogs
