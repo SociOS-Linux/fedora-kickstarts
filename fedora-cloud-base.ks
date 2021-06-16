@@ -38,7 +38,7 @@ services --enabled=sshd,cloud-init,cloud-init-local,cloud-config,cloud-final
 
 zerombr
 clearpart --all
-autopart --noboot --nohome --noswap --nolvm
+autopart --type=btrfs --noswap
 
 %include fedora-repo.ks
 
