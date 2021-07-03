@@ -32,13 +32,19 @@ rootpw --lock --iscrypted locked
 firewall --disabled
 
 # We pass net.ifnames=0 because we always want to use eth0 here on all the cloud images.
-bootloader --timeout=1 --append="no_timer_check net.ifnames=0 console=tty1 console=ttyS0,115200n8"
+bootloader --timeout=1 --location=mbr --append="no_timer_check net.ifnames=0 console=tty1 console=ttyS0,115200n8"
 
 services --enabled=sshd,cloud-init,cloud-init-local,cloud-config,cloud-final
 
-zerombr
-clearpart --all
-autopart --type=btrfs --noswap
+# Configure for gpt with bios+uefi
+clearpart --all --initlabel --disklabel=gpt
+part biosboot  --size=1    --fstype=biosboot
+part /boot/efi --size=100  --fstype=efi
+part /boot     --size=500  --fstype=ext4 --label=boot
+part btrfs.007 --size=2000 --fstype=btrfs --grow
+btrfs none --label=fedora btrfs.007
+btrfs /home --subvol --name=home LABEL=fedora
+btrfs /     --subvol --name=root LABEL=fedora
 
 %include fedora-repo.ks
 
@@ -86,6 +92,10 @@ qemu-guest-agent
 
 ##### begin kickstart post ###########################################
 %post --erroronfail
+
+# Blivet sets pmbr_boot flag erroneously and we need to purge it
+# otherwise it'll fail to boot
+parted /dev/vda disk_set pmbr_boot off
 
 # linux-firmware is installed by default and is quite large. As of mid 2020:
 #   Total download size: 97 M
