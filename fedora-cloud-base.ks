@@ -93,6 +93,11 @@ qemu-guest-agent
 ##### begin kickstart post ###########################################
 %post --erroronfail
 
+if [ "$(arch)" = "x86_64" ]; then
+# Set up legacy BIOS boot if we booted from UEFI
+grub2-install --target=i386-pc /dev/vda
+fi
+
 # Blivet sets pmbr_boot flag erroneously and we need to purge it
 # otherwise it'll fail to boot
 parted /dev/vda disk_set pmbr_boot off
