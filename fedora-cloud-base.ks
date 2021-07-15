@@ -124,8 +124,11 @@ rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 echo "Zeroing out empty space."
 # This forces the filesystem to reclaim space from deleted files
 dd bs=1M if=/dev/zero of=/var/tmp/zeros || :
-rm -f /var/tmp/zeros
 echo "(Don't worry -- that out-of-space error was expected.)"
+# Force sync to disk (Cf. https://pagure.io/cloud-sig/issue/340#comment-743430)
+btrfs filesystem sync /
+rm -f /var/tmp/zeros
+btrfs filesystem sync /
 
 # When we build the image a networking config file gets left behind.
 # Let's clean it up.
