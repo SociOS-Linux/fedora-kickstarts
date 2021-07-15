@@ -122,6 +122,9 @@ basearch=$(uname -i)
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 
 echo "Zeroing out empty space."
+# Create zeros file with nodatacow and no compression
+touch /var/tmp/zeros
+chattr +C /var/tmp/zeros
 # This forces the filesystem to reclaim space from deleted files
 dd bs=1M if=/dev/zero of=/var/tmp/zeros || :
 echo "(Don't worry -- that out-of-space error was expected.)"
