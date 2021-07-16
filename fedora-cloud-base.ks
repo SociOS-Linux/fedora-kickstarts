@@ -141,8 +141,5 @@ rm -f /etc/NetworkManager/system-connections/*.nmconnection
 # Clear machine-id on pre generated images
 truncate -s 0 /etc/machine-id
 
-# add fstrim -av to the post section until BZ#1971186 is resolved
-fstrim -av
-
 %end
 ##### end kickstart post ############################################
