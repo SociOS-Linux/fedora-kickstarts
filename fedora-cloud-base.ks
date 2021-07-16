@@ -121,18 +121,6 @@ releasever=$(rpm --eval '%{fedora}')
 basearch=$(uname -i)
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 
-echo "Zeroing out empty space."
-# Create zeros file with nodatacow and no compression
-touch /var/tmp/zeros
-chattr +C /var/tmp/zeros
-# This forces the filesystem to reclaim space from deleted files
-dd bs=1M if=/dev/zero of=/var/tmp/zeros || :
-echo "(Don't worry -- that out-of-space error was expected.)"
-# Force sync to disk (Cf. https://pagure.io/cloud-sig/issue/340#comment-743430)
-btrfs filesystem sync /
-rm -f /var/tmp/zeros
-btrfs filesystem sync /
-
 # When we build the image a networking config file gets left behind.
 # Let's clean it up.
 echo "Cleanup leftover networking configuration"
@@ -141,8 +129,12 @@ rm -f /etc/NetworkManager/system-connections/*.nmconnection
 # Clear machine-id on pre generated images
 truncate -s 0 /etc/machine-id
 
-# add fstrim -av to the post section until BZ#1971186 is resolved
+# Use fstrim to trim the disk of unused blocks
+# Cf. BZ#1971186
+echo "Trimming the disk of unused blocks."
 fstrim -av
+# Force sync to disk (Cf. https://pagure.io/cloud-sig/issue/340#comment-743430)
+btrfs filesystem sync /
 
 %end
 ##### end kickstart post ############################################
