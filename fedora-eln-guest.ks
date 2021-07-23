@@ -9,7 +9,6 @@ keyboard us
 timezone --utc America/New_York
 # add console and reorder in %post
 bootloader --timeout=1 --location=mbr --append="console=ttyS0,115200n8 no_timer_check crashkernel=auto net.ifnames=0"
-auth --enableshadow --passalgo=sha512
 selinux --enforcing
 firewall --enabled --service=ssh
 network --bootproto=dhcp --device=link --activate --onboot=on
