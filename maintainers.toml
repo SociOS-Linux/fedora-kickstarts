@@ -55,8 +55,8 @@ fas = [ "dagostinelli" ]
 maintainers = [ "Darryl T. Agostinelli" ]
 
 [labs.jam_kde.x86_64]
-fas = [ "eeickmeyer" ]
-maintainers = [ "Erich Eickmeyer" ]
+fas = [ "q5sys" ]
+maintainers = [ "JT Pennington" ]
 
 [labs.python_classroom.x86_64]
 fas = [ "churchyard", "python-sig" ]
