@@ -61,12 +61,6 @@ julia
 julia-doc
 julia-devel
 
-# IDEs for the IDE folks
-@eclipse
-
-# Workaround for https://pagure.io/releng/issue/7814
--eclipse-linuxtools-vagrant
-
 python3-spyder
 python3-spyder-kernels
 
