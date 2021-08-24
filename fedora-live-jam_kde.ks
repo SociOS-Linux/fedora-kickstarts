@@ -7,7 +7,7 @@
 # Web: https://fedoraproject.org/wiki/Fedora_jam
 # Web: insert spinspacke when created
 
-# Maintainer: Erich Eickmeyer <erich@ericheickmeyer.com>
+# Maintainer: JT Pennington (q5sys) <jt@obs-sec.com>
 
 %include fedora-live-kde.ks
 
