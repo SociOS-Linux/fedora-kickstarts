@@ -7,6 +7,9 @@
 @kde-apps
 @kde-media
 @libreoffice
+# add libreoffice-draw and libreoffice-math (pagureio:fedora-kde/SIG#103)
+libreoffice-draw
+libreoffice-math
 
 fedora-release-kde
 
