@@ -38,6 +38,7 @@ services --enabled=sshd,cloud-init,cloud-init-local,cloud-config,cloud-final
 
 # Configure for gpt with bios+uefi
 clearpart --all --initlabel --disklabel=gpt
+part prepboot  --size=4    --fstype=prepboot
 part biosboot  --size=1    --fstype=biosboot
 part /boot/efi --size=100  --fstype=efi
 part /boot     --size=500  --fstype=ext4 --label=boot
