@@ -43,7 +43,7 @@ python3-networkx
 python3-pandas
 
 # matplotlib backends
-python3-matplotlib-qt4
+python3-matplotlib-qt5
 python3-matplotlib-tk
 
 # Include Java development tools
