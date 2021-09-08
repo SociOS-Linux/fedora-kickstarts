@@ -14,5 +14,8 @@
 # DVD payload
 part / --size=7200
 
+# make sure that initial-setup runs and lets us do all the configuration bits
+firstboot --reconfig
+
 %post
 %end
