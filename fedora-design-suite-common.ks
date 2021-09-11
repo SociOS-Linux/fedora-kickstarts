@@ -13,7 +13,7 @@ deja-dup-nautilus
 gnome-books
 gnome-calendar
 gnome-photos
-gnome-shell-extension-pomodoro
+gnome-pomodoro
 gnome-todo
 
 # Add cosmetic for terminal
