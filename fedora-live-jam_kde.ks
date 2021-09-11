@@ -58,6 +58,8 @@ thunderbird
 -non-mixer
 -non-session-manager
 -non-sequencer
+# until rhbz#1996449 is fixed
+-tuxguitar
 
 %end
 
