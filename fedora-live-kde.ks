@@ -14,8 +14,8 @@
 # DVD payload
 part / --size=7200
 
-# make sure that initial-setup runs and lets us do all the configuration bits
-firstboot --reconfig
-
+# Enable initial-setup to enable two step OEM installations with user
+# configuration on first boot
 %post
+touch /etc/reconfigSys
 %end
