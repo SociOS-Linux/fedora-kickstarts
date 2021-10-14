@@ -139,6 +139,11 @@ btrfs filesystem sync /
 echo "Cleanup leftover networking configuration"
 rm -f /etc/NetworkManager/system-connections/*.nmconnection
 
+# Truncate the /etc/resolv.conf left over from NetworkManager during the
+# kickstart. This causes delays in boot with cloud-init because the
+# 192.168.122.1 DNS server cannot be reached.
+truncate -s 0 /etc/resolv.conf
+
 # Clear machine-id on pre generated images
 truncate -s 0 /etc/machine-id
 
