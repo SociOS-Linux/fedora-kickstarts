@@ -12,7 +12,6 @@
 
 %packages
 @^i3-desktop-environment
-brightlight
 feh
 dex-autostart
 thunar
