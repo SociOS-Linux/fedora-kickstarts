@@ -87,10 +87,6 @@ qemu-guest-agent
 # in /usr/share/GeoIP
 -geolite2-country
 -geolite2-city
-
-# Include dependencies for cloud-init on Azure.
-gdisk
-openssl
 %end
 ##### end package list ###############################################
 
