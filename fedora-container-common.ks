@@ -36,7 +36,7 @@ bash
 coreutils
 glibc-minimal-langpack
 rpm
-util-linux
+util-linux-core
 -kernel
 -dosfstools
 -e2fsprogs
