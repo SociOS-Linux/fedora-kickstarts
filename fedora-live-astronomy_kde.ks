@@ -43,11 +43,7 @@ swarp
 wcstools
 
 # Observatory: KStars + INDI drivers
-indi-aagcloudwatcher
-indi-apogee
-indi-eqmod
-indi-gphoto
-indi-sx
+indi-3rdparty-drivers
 indistarter
 kstars
 
