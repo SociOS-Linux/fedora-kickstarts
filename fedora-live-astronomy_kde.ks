@@ -37,7 +37,7 @@ fpack
 psfex
 scamp
 sextractor
-siril
+#siril
 skyviewer
 swarp
 wcstools
