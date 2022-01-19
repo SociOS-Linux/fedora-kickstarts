@@ -18,6 +18,12 @@ sudo
 %end
 
 %post --erroronfail --log=/root/anaconda-post.log
+set -eux
+
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-33-primary \
+             /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-34-primary \
+             /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-35-primary
+
 # remove some extraneous files
 rm -rf /var/cache/dnf/*
 rm -rf /tmp/*

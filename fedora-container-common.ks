@@ -68,7 +68,13 @@ echo 'LANG="C.UTF-8"' >  /etc/locale.conf
 
 # https://bugzilla.redhat.com/show_bug.cgi?id=1400682
 echo "Import RPM GPG key"
-releasever=$(rpm --eval '%{fedora}')
+releasever=$(rpm --eval '%{?fedora}')
+
+# When building ELN containers, we don't have the %{fedora} macro
+if [ -z $releasever ]; then
+  releasever=eln
+fi
+
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-primary
 
 echo "# fstab intentionally empty for containers" > /etc/fstab
