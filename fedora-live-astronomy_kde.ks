@@ -18,7 +18,7 @@
 %include fedora-live-minimization.ks
 
 # The recommended part size for DVDs is too close to use for the astronomy spin
-part / --size 14500
+part / --size 16000
 
 %packages
 
