@@ -93,4 +93,12 @@ touch /etc/machine-id
 # Note that running rpm recreates the rpm db files which aren't needed or wanted
 rm -f /var/lib/rpm/__db*
 
+# Anaconda adds console=tty0 to the grub boot line on all images. this is problematic
+# when you are using fedora via serial console as you do not get any output post grub
+# linux does a good job of knowing what consoles need to be enabled.
+# https://bugzilla.redhat.com/show_bug.cgi?id=2022757
+if [[ $arch == "aarch64" ]] || [[ $arch == "armv7l" ]]; then
+sed -i -e 's|console=tty0||g' /boot/loader/entries/*conf
+fi
+
 %end
