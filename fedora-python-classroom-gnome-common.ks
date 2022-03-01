@@ -35,6 +35,9 @@ python3-pillow-tk
 # This is no longer workstation
 -@workstation-product
 
+# But we want to keep the Fedora desktop backgrounds
+desktop-backgrounds-gnome
+
 # Add a web browser
 @firefox
 
