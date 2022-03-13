@@ -113,7 +113,8 @@ gimp
 kst
 kst-docs
 kst-fits
-LabPlot
+# LabPlot currently not installable due to #2044284
+#LabPlot
 
 #Misc. Utils
 ImageMagick
