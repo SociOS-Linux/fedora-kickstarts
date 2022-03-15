@@ -107,6 +107,7 @@ FOE
 # disable updates plugin
 cat >> /usr/share/glib-2.0/schemas/org.gnome.software.gschema.override << FOE
 [org.gnome.software]
+allow-updates=false
 download-updates=false
 FOE
 
