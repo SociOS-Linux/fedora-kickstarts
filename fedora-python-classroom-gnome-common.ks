@@ -6,9 +6,6 @@
 
 %include fedora-python-classroom-common.ks
 
-# https://bugzilla.redhat.com/show_bug.cgi?id=1695796
-part / --size 8192
-
 %packages
 emacs
 python3-matplotlib-tk
