@@ -20,6 +20,12 @@ fusion-icon
 # blacklist applications which breaks mate-desktop
 -audacious
 
+# see https://bugzilla.redhat.com/show_bug.cgi?id=2068699
+# and https://bugzilla.redhat.com/show_bug.cgi?id=1933494
+# use earlyoom instead of systemd-oomd-defaults
+earlyoom
+-systemd-oomd-defaults
+
 # office
 @libreoffice
 
