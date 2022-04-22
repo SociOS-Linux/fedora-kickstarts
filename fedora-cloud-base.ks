@@ -41,7 +41,7 @@ clearpart --all --initlabel --disklabel=gpt
 part prepboot  --size=4    --fstype=prepboot
 part biosboot  --size=1    --fstype=biosboot
 part /boot/efi --size=100  --fstype=efi
-part /boot     --size=500  --fstype=ext4 --label=boot
+part /boot     --size=1000  --fstype=ext4 --label=boot
 part btrfs.007 --size=2000 --fstype=btrfs --grow
 btrfs none --label=fedora btrfs.007
 btrfs /home --subvol --name=home LABEL=fedora
